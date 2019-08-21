@@ -24,13 +24,14 @@ Traveller.prototype.getJourneysByTransport = function (transport) {
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
-  const result = this.journeys.filter(() => {
-
+  const result = this.journeys.filter((journey) => {
+    return journey.distance > minDistance;
   });
+  return result;
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-
+  
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
