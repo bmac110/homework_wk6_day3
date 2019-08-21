@@ -3,10 +3,7 @@ const Traveller = function(journeys) {
 };
 
 Traveller.prototype.getJourneyStartLocations = function() {
-  const result = this.journeys.map((journey) => {
-    return journey.startLocation;
-  });
-  return result;
+  return this.journeys.map(journey => journey.startLocation);
 };
 
 Traveller.prototype.getJourneyEndLocations = function () {
@@ -38,8 +35,17 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-  
+  const result = this.journeys.map((journey) => {
+    return journey.transport;
+  });
+  const uniqueJourneys = result.filter((journey, index, self) => {
+    return index === self.indexOf(journey);
+  });
+  return uniqueJourneys;
 };
+
+// var unique = arr.filter(function(elem, index, self) {
+//     return index === self.indexOf(elem);
 
 
 module.exports = Traveller;
