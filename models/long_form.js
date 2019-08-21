@@ -7,19 +7,31 @@ Traveller.prototype.getJourneyStartLocations = function() {
 };
 
 Traveller.prototype.getJourneyEndLocations = function () {
-  return this.journeys.map(journey => journey.endLocation);
+  const result = this.journeys.map((journey) => {
+    return journey.endLocation;
+  });
+  return result;
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
-  return this.journeys.filter(journey => journey.transport === transport);
+  const result = this.journeys.filter((journey) => {
+    return journey.transport === transport;
+  });
+  return result;
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
-  return this.journeys.filter(journey => journey.distance > minDistance);
+  const result = this.journeys.filter((journey) => {
+    return journey.distance > minDistance;
+  });
+  return result;
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-  return this.journeys.reduce((total, journey) => total + journey.distance, 0);
+  const result = this.journeys.reduce((total, journey) => {
+    return total + journey.distance;
+  }, 0);
+  return result;
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
